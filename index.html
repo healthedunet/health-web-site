@@ -30,6 +30,294 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        .about-section {
+            padding: 80px 0;
+        }
+        .about-image {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+        }
+        .about-text h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .about-text p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .feature-icon {
+            font-size: 40px;
+            color: #007bff;
+            margin-right: 20px;
+        }
+        .feature-text h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .feature-text p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Added responsive styles */
+        @media (max-width: 767px) {
+            .about-section {
+                padding: 60px 15px;
+            }
+            .about-image {
+                height: 250px;
+            }
+            .about-text h2 {
+                font-size: 28px;
+            }
+            .about-text p {
+                font-size: 16px;
+            }
+            .feature-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            .feature-icon {
+                margin: 0 0 10px;
+            }
+            /* New: reduce header text size for mobile */
+            .navbar-brand h1 {
+                font-size: 24px;
+            }
+        }
+
+        /* Improved mobile responsive styles */
+        @media (max-width: 767px) {
+            /* Header and Navigation */
+            .navbar {
+                padding: 0.5rem 1rem;
+            }
+            
+            .navbar-brand {
+                max-width: 70%;
+            }
+            
+            .navbar-brand img {
+                height: 30px;
+            }
+            
+            .navbar-brand h1 {
+                font-size: 18px;
+                margin-left: 8px;
+            }
+
+            /* Mobile Menu */
+            .navbar-collapse {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(255, 255, 255, 0.98);
+                padding-top: 60px;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+                z-index: 1000;
+            }
+
+            .navbar-collapse.show {
+                transform: translateX(0);
+            }
+
+            .navbar-nav {
+                height: 100%;
+                padding: 20px;
+            }
+
+            .nav-item {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .nav-link {
+                font-size: 18px;
+                padding: 12px !important;
+            }
+
+            /* Page Header */
+            .page-header {
+                padding: 40px 0 !important;
+            }
+
+            .page-header h1 {
+                font-size: 32px !important;
+            }
+
+            /* Content Sections */
+            .container {
+                padding: 0 20px;
+            }
+
+            .about-section {
+                padding: 40px 0;
+            }
+
+            .about-image {
+                height: 200px;
+                margin-bottom: 20px;
+            }
+
+            /* Feature Items */
+            .feature-item {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+
+            /* Footer */
+            footer {
+                text-align: center;
+            }
+
+            footer .social-links {
+                justify-content: center;
+                margin-top: 15px;
+            }
+
+            /* Topbar */
+            .topbar-info {
+                display: none;
+            }
+
+            /* Buttons */
+            .btn {
+                padding: 8px 20px;
+                font-size: 14px;
+            }
+
+            /* Fix position of mobile menu button */
+            .navbar-toggler {
+                position: fixed;
+                top: 15px;
+                right: 15px;
+                z-index: 1001;
+                padding: 6px 10px;
+                background: white;
+                border-radius: 4px;
+            }
+
+            /* Email and Contact Responsive Fixes */
+            .bg-light.rounded.d-flex.align-items-center.p-5 {
+                padding: 15px !important;
+            }
+
+            .ms-4 h5 {
+                font-size: 14px;
+                word-break: break-word;
+            }
+
+            .footer .input-group {
+                flex-direction: column;
+            }
+
+            .footer .input-group input,
+            .footer .input-group button {
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            .footer .input-group input {
+                border-radius: 4px !important;
+            }
+
+            .footer .input-group button {
+                border-radius: 4px !important;
+                margin-top: 10px;
+            }
+
+            /* Fix contact info overflow */
+            .bg-light.rounded.d-flex.align-items-center.p-5.mb-4,
+            .bg-light.rounded.d-flex.align-items-center.p-5 {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .bg-light.rounded.d-flex.align-items-center.p-5.mb-4 .ms-4,
+            .bg-light.rounded.d-flex.align-items-center.p-5 .ms-4 {
+                margin-left: 0 !important;
+                margin-top: 15px;
+            }
+
+            /* Footer responsive fixes */
+            .footer {
+                text-align: center;
+            }
+
+            .footer .d-flex {
+                justify-content: center;
+            }
+
+            .footer .social-links {
+                justify-content: center;
+                margin-top: 15px;
+            }
+
+            /* Appointment form fixes */
+            .appointment-form .form-control,
+            .appointment-form .form-select {
+                margin-bottom: 10px;
+            }
+
+            /* Fix long email display */
+            .text-break {
+                word-break: break-all;
+            }
+        }
+
+        /* Additional tablet responsive styles */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .navbar-brand h1 {
+                font-size: 22px;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            .feature-item {
+                padding: 20px;
+            }
+
+            .ms-4 h5 {
+                font-size: 16px;
+                word-break: break-word;
+            }
+
+            .bg-light.rounded.d-flex.align-items-center.p-5 {
+                padding: 20px !important;
+            }
+        } 
+    </style>
+     <!-- Add this script right before closing head tag -->
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle mobile menu animations
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        bootstrap.Collapse.getInstance(navbarCollapse).hide();
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -401,7 +689,7 @@
                         </div>
                         <div class="ms-4">
                             <p class="mb-2">Mail Us Now</p>
-                            <h5 class="mb-0">healtheducationnetwork5@gmail.com</h5>
+                            <h5 class="mb-0 text-break">healtheducationnetwork5@gmail.com</h5>
                         </div>
                     </div>
                 </div>
@@ -491,7 +779,7 @@
                         <i class="fas fa-envelope mr-2"></i>
                         <p class="mb-0">healtheducationnetwork5@gmail.com</p>
                     </div>
-<div class="h-100 d-inline-flex align-items-center">
+                    <div class="h-100 d-inline-flex align-items-center">
                         <a class="btn btn-sm-square rounded-circle bg-white text-primary me-1" href=""><i class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-sm-square rounded-circle bg-white text-primary me-0" href=""><i class="fab fa-instagram"></i></a>
                         <a class="btn btn-sm-square rounded-circle bg-white text-primary me-0" href=""><i class="fab fa-whatsapp"></i></a>
@@ -507,10 +795,10 @@
                 <div class="col-md-4 col-lg-6">
                     <h5 class="mb-3">Newsletter</h5>
                     <p class="mb-3">Subscribe for our daily Health information</p>
-                    <form action="https://formspree.io/f/xkgnbazb" method="POST"></form>
+                    <form action="https://formspree.io/f/xkgnbazb" method="POST">
                         <div class="input-group">
-                            <input type="email" name="email" class="form-control" placeholder="Your email" aria-label="Your email" aria-describedby="button-addon2" required>
-                            <button class="btn btn-primary" type="submit" id="button-addon2">Sign Up</button>
+                            <input type="email" name="email" class="form-control mb-2 mb-md-0" placeholder="Your email" required>
+                            <button class="btn btn-primary" type="submit">Sign Up</button>
                         </div>
                     </form>
                 </div>
@@ -546,6 +834,8 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+   
 </body>
 
 </html>

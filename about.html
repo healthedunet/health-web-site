@@ -70,7 +70,181 @@
             font-size: 16px;
             line-height: 1.6;
         }
+
+        /* Added responsive styles */
+        @media (max-width: 767px) {
+            .about-section {
+                padding: 60px 15px;
+            }
+            .about-image {
+                height: 250px;
+            }
+            .about-text h2 {
+                font-size: 28px;
+            }
+            .about-text p {
+                font-size: 16px;
+            }
+            .feature-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            .feature-icon {
+                margin: 0 0 10px;
+            }
+            /* New: reduce header text size for mobile */
+            .navbar-brand h1 {
+                font-size: 24px;
+            }
+        }
+
+        /* Improved mobile responsive styles */
+        @media (max-width: 767px) {
+            /* Header and Navigation */
+            .navbar {
+                padding: 0.5rem 1rem;
+            }
+            
+            .navbar-brand {
+                max-width: 70%;
+            }
+            
+            .navbar-brand img {
+                height: 30px;
+            }
+            
+            .navbar-brand h1 {
+                font-size: 18px;
+                margin-left: 8px;
+            }
+
+            /* Mobile Menu */
+            .navbar-collapse {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(255, 255, 255, 0.98);
+                padding-top: 60px;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+                z-index: 1000;
+            }
+
+            .navbar-collapse.show {
+                transform: translateX(0);
+            }
+
+            .navbar-nav {
+                height: 100%;
+                padding: 20px;
+            }
+
+            .nav-item {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .nav-link {
+                font-size: 18px;
+                padding: 12px !important;
+            }
+
+            /* Page Header */
+            .page-header {
+                padding: 40px 0 !important;
+            }
+
+            .page-header h1 {
+                font-size: 32px !important;
+            }
+
+            /* Content Sections */
+            .container {
+                padding: 0 20px;
+            }
+
+            .about-section {
+                padding: 40px 0;
+            }
+
+            .about-image {
+                height: 200px;
+                margin-bottom: 20px;
+            }
+
+            /* Feature Items */
+            .feature-item {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+
+            /* Footer */
+            footer {
+                text-align: center;
+            }
+
+            footer .social-links {
+                justify-content: center;
+                margin-top: 15px;
+            }
+
+            /* Topbar */
+            .topbar-info {
+                display: none;
+            }
+
+            /* Buttons */
+            .btn {
+                padding: 8px 20px;
+                font-size: 14px;
+            }
+
+            /* Fix position of mobile menu button */
+            .navbar-toggler {
+                position: fixed;
+                top: 15px;
+                right: 15px;
+                z-index: 1001;
+                padding: 6px 10px;
+                background: white;
+                border-radius: 4px;
+            }
+        }
+
+        /* Additional tablet responsive styles */
+        @media (min-width: 768px) and (max-width: 991px) {
+            .navbar-brand h1 {
+                font-size: 22px;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            .feature-item {
+                padding: 20px;
+            }
+        }
     </style>
+
+    <!-- Add this script right before closing head tag -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle mobile menu animations
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        bootstrap.Collapse.getInstance(navbarCollapse).hide();
+                    }
+                });
+            });
+        });
+    </script>
+    
 </head>
 
 <body>
@@ -184,7 +358,7 @@
                     <div class="col-lg-6 about-text order-lg-1">
                         <h2>Our Mission and Vision</h2>
                         <p>
-                            Our mission is to provide accurate and accessible health education to individuals, families, and communities. We envision a future where health education is a cornerstone of community empowerment. By fostering a deeper understanding of health topics and promoting preventive care, we aim to reduce disparities, improve health outcomes, and contribute to a healthier global society.
+                           our mission is to provide accurate and accessible health Education to individuals, families, and communities. We envision a future where health Education is a cornerstone of community empowerment that their is an equality and equity within the health sector.  By fostering a deeper understanding of health topics and promoting preventive care, we aim to reduce disparities, improve health outcomes, and contribute to a healthier global society and work to ensure that we leave in a clean and healthy environment.
                         </p>
                     </div>
                 </div>
@@ -195,38 +369,52 @@
             <div class="container">
                 <h2 class="text-center mb-5">What We Offer</h2>
                 <div class="row">
+                    
                     <div class="col-md-6 col-lg-3">
                         <div class="feature-item">
                             <div class="feature-icon"><i class="fas fa-book"></i></div>
                             <div class="feature-text">
-                                <h3>Comprehensive Resources</h3>
-                                <p>Access a wealth of articles, videos, and guides on various health topics.</p>
+                                <h3>HEALTH RESEARCH</h3>
+                                <p>We conduct comprehensive research initiatives to analyze current health trends and develop data-driven solutions that improve community wellness.</p>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-6 col-lg-3">
                         <div class="feature-item">
                             <div class="feature-icon"><i class="fas fa-chalkboard-teacher"></i></div>
                             <div class="feature-text">
-                                <h3>Interactive Learning</h3>
-                                <p>Engage with quizzes, webinars, and virtual workshops to enhance your understanding.</p>
+                                <h3>HEALTH EDUCATION</h3>
+                                <p>Discover engaging workshops and expert-led sessions designed to empower you with actionable health insights.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-users"></i></div>
-                            <div class="feature-text">
-                                <h3>Community Support</h3>
-                                <p>Connect with others through forums, support groups, and community events.</p>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="col-md-6 col-lg-3">
                         <div class="feature-item">
                             <div class="feature-icon"><i class="fas fa-user-md"></i></div>
                             <div class="feature-text">
-                                <h3>Expert Guidance</h3>
+                                <h3>EPIDEMIOLOGICAL STUDIES</h3>
+                                <p>Gain insights into trends and disease patterns with our focused research, empowering public health decisions and preventive strategies.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-users"></i></div>
+                            <div class="feature-text">
+                                <h3>COMMUNITY SERVICES</h3>
+                                <p>We engage and support our community through volunteer programs, resource sharing, and local events designed to enhance overall well-being.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fas fa-user-md"></i></div>
+                            <div class="feature-text">
+                                <h3>DISEASES SURVEILLANCE AND PREVENTION</h3>
                                 <p>Schedule appointments with qualified healthcare professionals for personalized advice.</p>
                             </div>
                         </div>
